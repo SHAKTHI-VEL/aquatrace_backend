@@ -4,7 +4,7 @@ const prisma=new PrismaClient()
 const getUserData=async(req,res)=>{
     try {
         const uid=req.params.uid
-        if(typeof(id)===undefined){
+        if(typeof(uid)===undefined){
             return res.status(400).json({success:false,message:'Enter a appropriate id'})
         }
         const result=await prisma.userdata.findMany({
