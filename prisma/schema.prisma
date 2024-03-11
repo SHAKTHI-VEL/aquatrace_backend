@@ -1,0 +1,29 @@
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["fullTextSearch", "fullTextIndex"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model activity {
+  id             Int      @id @default(autoincrement())
+  activity       String?
+  waterfootprint Decimal? @db.Decimal
+}
+
+model food {
+  id             Int      @id @default(autoincrement())
+  fooditems      String?
+  waterfootprint Decimal? @db.Decimal
+}
+
+model userdata{
+  id              Int       @id @default(autoincrement())
+  uid             String
+  item            String
+  waterfootprint  Decimal
+  date            DateTime  @default(now())
+}
