@@ -15,7 +15,17 @@ const getUserData=async(req,res)=>{
     
             }
         })
-        return res.status(200).json({success:true,result})
+
+        const total=await prisma.userdata.aggregate({
+            where:{
+                uid:uid
+            },
+            _sum:{
+                waterfootprint:true
+            }
+        })
+        
+        return res.status(200).json({success:true,result,"total":total._sum.waterfootprint})
     } catch (error) {
         console.log(error);
         return res.status(400).json({success:false,message:error})
