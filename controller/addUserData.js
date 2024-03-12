@@ -3,10 +3,10 @@ const prisma=new PrismaClient()
 
 const addData=async (req,res)=>{
     try {
-        const{uid,item,waterfootprint}=req.body;
+        const{uid,item,waterfootprint,measure}=req.body;
         const result=await prisma.userdata.create({
             data:{
-                uid,item,waterfootprint
+                uid,item,waterfootprint,measure
             }
         })
         return res.status(200).json({success:true,result})

@@ -1,7 +1,7 @@
 generator client {
-  provider = "prisma-client-js"
-  previewFeatures = ["fullTextSearch", "fullTextIndex"]
-  binaryTargets = ["native", "rhel-openssl-1.0.x"]
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextIndex", "fullTextSearch"]
+  binaryTargets   = ["native", "rhel-openssl-1.0.x"]
 }
 
 datasource db {
@@ -21,10 +21,11 @@ model food {
   waterfootprint Decimal? @db.Decimal
 }
 
-model userdata{
-  id              Int       @id @default(autoincrement())
-  uid             String
-  item            String
-  waterfootprint  Decimal
-  date            DateTime  @default(now())
+model userdata {
+  id             Int      @id @default(autoincrement())
+  uid            String
+  item           String
+  waterfootprint Decimal
+  measure       String
+  date           DateTime @default(now()) @db.Date
 }
