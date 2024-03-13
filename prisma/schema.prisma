@@ -26,6 +26,7 @@ model userdata {
   uid            String
   item           String
   waterfootprint Decimal
+  quantity       Decimal
   measure       String
   date           DateTime @default(now()) @db.Date
 }
