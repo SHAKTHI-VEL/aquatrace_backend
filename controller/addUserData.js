@@ -18,7 +18,7 @@ const addData=async (req,res)=>{
             return res.status(200).json({success:true,result})
         }
         else{
-            if(measure==grams){
+            if(measure==="grams"){
                 const findWaterfootprint=await prisma.food.findFirst({
                     where:{
                         fooditems:item
@@ -31,7 +31,7 @@ const addData=async (req,res)=>{
                 })
                 return res.status(200).json({success:true,result})
             }
-            if(measure==katori){
+            if(measure==="katori"){
                 const findWaterfootprint=await prisma.food.findFirst({
                     where:{
                         fooditems:item
@@ -44,7 +44,7 @@ const addData=async (req,res)=>{
                 })
                 return res.status(200).json({success:true,result})
             }
-            if(measure==cup){
+            if(measure==="cup"){
                 const findWaterfootprint=await prisma.food.findFirst({
                     where:{
                         fooditems:item
@@ -58,7 +58,7 @@ const addData=async (req,res)=>{
                 return res.status(200).json({success:true,result})
             }
 
-            if(measure==bowl){
+            if(measure=="bowl"){
                 const findWaterfootprint=await prisma.food.findFirst({
                     where:{
                         fooditems:item
