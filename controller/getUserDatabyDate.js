@@ -20,7 +20,13 @@ const getUserDatabyDate=async(req,res)=>{
             waterfootprint:true
         }
     })
-    return res.status(200).json({success:true,result,total:total._sum.waterfootprint})
+    const waterfootprint=total._sum.waterfootprint
+    if(waterfootprint==null){
+        return res.status(200).json({success:true,result,total:0})
+    }
+    else{
+        return res.status(200).json({success:true,result,total:total._sum.waterfootprint})
+    }
     } catch (error) {
         console.log(error);
         return res.status(400).json({success:false,message:"Internal Server Error"})
