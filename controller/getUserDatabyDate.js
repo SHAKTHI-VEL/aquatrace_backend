@@ -22,7 +22,7 @@ const getUserDatabyDate=async(req,res)=>{
     })
     const waterfootprint=total._sum.waterfootprint
     if(waterfootprint==null){
-        return res.status(404).json({success:false,result,total:0})
+        return res.status(204).json({success:false,result,total:0})
     }
     else{
         return res.status(200).json({success:true,result,total:total._sum.waterfootprint})
