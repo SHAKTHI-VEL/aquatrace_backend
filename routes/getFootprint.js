@@ -7,6 +7,7 @@ const getUserDataofToday = require('../controller/getUserDataofToday')
 const getAllFood = require('../controller/getAllFood')
 const getAllActivity = require('../controller/getAllActivity')
 const getUserDatabyDate = require('../controller/getUserDatabyDate')
+const removeData = require('../controller/removeUserData')
 const router=express.Router()
 
 router.get('/food',searchFood)
@@ -17,5 +18,6 @@ router.get('/user/date/:uid',getUserDatabyDate)
 router.get('/user/today/:uid',getUserDataofToday)
 router.get('/getallfood',getAllFood)
 router.get('/getallactivity',getAllActivity)
+router.delete('/delete/:id',removeData)
 
 module.exports=router
