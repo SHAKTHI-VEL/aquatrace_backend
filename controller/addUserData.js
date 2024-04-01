@@ -71,6 +71,20 @@ const addData=async (req,res)=>{
                 })
                 return res.status(200).json({success:true,result})
             }
+
+            if(measure=="serving"){
+                const findWaterfootprint=await prisma.food.findFirst({
+                    where:{
+                        fooditems:item
+                    }
+                })
+                const result=await prisma.userdata.create({
+                    data:{
+                        uid,item,quantity,measure,waterfootprint:findWaterfootprint.waterfootprint*quantity*100
+                    }
+                })
+                return res.status(200).json({success:true,result})
+            }
         }
         
     } catch (error) {
