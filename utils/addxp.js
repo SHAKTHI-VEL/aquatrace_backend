@@ -11,7 +11,7 @@ const addXp=async(waterfootprint,uid)=>{
 
     const result=await prisma.xp.findFirst({
         where:{
-            uid:uid,
+            uid:s,
             date:date
         }
     })
@@ -31,7 +31,7 @@ const addXp=async(waterfootprint,uid)=>{
     else{
         const userExist=await prisma.xp.findFirst({
             where:{
-                uid:uid
+                uid:s
             }
         })
         if(userExist){
@@ -48,7 +48,7 @@ const addXp=async(waterfootprint,uid)=>{
         else{
             await prisma.xp.create({
                 data:{
-                    uid:uid,
+                    uid:s,
                     totalXp:cxp,
                     date:new Date()
                 }
