@@ -30,3 +30,10 @@ model userdata {
   measure       String
   date           DateTime @default(now()) @db.Date
 }
+
+model xp{
+  id             Int      @id @default(autoincrement())
+  uid            String
+  totalXp        Decimal
+  date           DateTime
+}
