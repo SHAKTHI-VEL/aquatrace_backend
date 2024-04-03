@@ -56,7 +56,6 @@ const addXp=async(waterfootprint,uid)=>{
 }
 
 
-addXp(350,"test")
 
 
 module.exports=addXp
