@@ -35,5 +35,5 @@ model xp{
   id             Int      @id @default(autoincrement())
   uid            String
   totalXp        Decimal
-  date           DateTime
+  date           DateTime @db.Date
 }
