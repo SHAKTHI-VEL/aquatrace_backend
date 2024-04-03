@@ -16,7 +16,7 @@ const addData=async (req,res)=>{
                     uid,item,quantity,measure,waterfootprint:findWaterfootprint.waterfootprint*quantity
                 }
             })
-            
+            addXp(findWaterfootprint.waterfootprint,uid.toString())
             return res.status(200).json({success:true,result})
         }
         else{
@@ -31,7 +31,7 @@ const addData=async (req,res)=>{
                         uid,item,quantity,measure,waterfootprint:findWaterfootprint.waterfootprint*quantity
                     }
                 })
-                
+                addXp(findWaterfootprint.waterfootprint,uid.toString())
                 return res.status(200).json({success:true,result})
             }
             if(measure==="katori"){
@@ -45,7 +45,7 @@ const addData=async (req,res)=>{
                         uid,item,quantity,measure,waterfootprint:findWaterfootprint.waterfootprint*quantity*124
                     }
                 })
-                
+                addXp(findWaterfootprint.waterfootprint,uid.toString())
                 return res.status(200).json({success:true,result})
             }
             if(measure==="cup"){
@@ -59,7 +59,7 @@ const addData=async (req,res)=>{
                         uid,item,quantity,measure,waterfootprint:findWaterfootprint.waterfootprint*quantity*206
                     }
                 })
-                
+                addXp(findWaterfootprint.waterfootprint,uid.toString())
                 return res.status(200).json({success:true,result})
             }
 
@@ -74,7 +74,7 @@ const addData=async (req,res)=>{
                         uid,item,quantity,measure,waterfootprint:findWaterfootprint.waterfootprint*quantity*290
                     }
                 })
-                
+                addXp(findWaterfootprint.waterfootprint,uid.toString())
                 return res.status(200).json({success:true,result})
             }
 
@@ -89,7 +89,7 @@ const addData=async (req,res)=>{
                         uid,item,quantity,measure,waterfootprint:findWaterfootprint.waterfootprint*quantity*100
                     }
                 })
-                
+                addXp(findWaterfootprint.waterfootprint,uid.toString())
                 return res.status(200).json({success:true,result})
             }
         }
