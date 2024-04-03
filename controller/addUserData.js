@@ -1,5 +1,4 @@
-const {PrismaClient}=require('@prisma/client');
-const addXp = require('../utils/addxp');
+const {PrismaClient}=require('@prisma/client')
 const prisma=new PrismaClient()
 
 const addData=async (req,res)=>{
@@ -16,7 +15,6 @@ const addData=async (req,res)=>{
                     uid,item,quantity,measure,waterfootprint:findWaterfootprint.waterfootprint*quantity
                 }
             })
-            
             return res.status(200).json({success:true,result})
         }
         else{
@@ -31,7 +29,6 @@ const addData=async (req,res)=>{
                         uid,item,quantity,measure,waterfootprint:findWaterfootprint.waterfootprint*quantity
                     }
                 })
-               await addXp(findWaterfootprint.waterfootprint,uid)
                 return res.status(200).json({success:true,result})
             }
             if(measure==="katori"){
@@ -45,7 +42,6 @@ const addData=async (req,res)=>{
                         uid,item,quantity,measure,waterfootprint:findWaterfootprint.waterfootprint*quantity*124
                     }
                 })
-                await addXp(findWaterfootprint.waterfootprint,uid)
                 return res.status(200).json({success:true,result})
             }
             if(measure==="cup"){
@@ -59,7 +55,6 @@ const addData=async (req,res)=>{
                         uid,item,quantity,measure,waterfootprint:findWaterfootprint.waterfootprint*quantity*206
                     }
                 })
-                await addXp(findWaterfootprint.waterfootprint,uid)
                 return res.status(200).json({success:true,result})
             }
 
@@ -74,7 +69,6 @@ const addData=async (req,res)=>{
                         uid,item,quantity,measure,waterfootprint:findWaterfootprint.waterfootprint*quantity*290
                     }
                 })
-                await addXp(findWaterfootprint.waterfootprint,uid)
                 return res.status(200).json({success:true,result})
             }
 
@@ -89,7 +83,6 @@ const addData=async (req,res)=>{
                         uid,item,quantity,measure,waterfootprint:findWaterfootprint.waterfootprint*quantity*100
                     }
                 })
-                await addXp(findWaterfootprint.waterfootprint,uid)
                 return res.status(200).json({success:true,result})
             }
         }
