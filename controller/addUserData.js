@@ -1,5 +1,6 @@
 const {PrismaClient}=require('@prisma/client');
 const addXp = require('../utils/addxp');
+const calcXp = require('../utils/calcXp');
 const prisma=new PrismaClient()
 
 const addData=async (req,res)=>{
@@ -16,7 +17,56 @@ const addData=async (req,res)=>{
                     uid,item,quantity,measure,waterfootprint:findWaterfootprint.waterfootprint*quantity
                 }
             })
-            await(addXp(600,req.body))
+            const date=new Date()
+            const cxp=calcXp(findWaterfootprint.waterfootprint)
+
+
+            const results=await prisma.xp.findFirst({
+                where:{
+                    uid:uid,
+                    date:date
+                }
+            })
+            
+            if(results!=null){
+                const totalxp=parseFloat(results.totalXp)+parseFloat(cxp)
+                
+                await prisma.xp.update({
+                    where:{
+                        id:results.id
+                    },
+                    data:{
+                        totalXp:totalxp
+                    }
+                })
+            }
+            else{
+                const userExist=await prisma.xp.findFirst({
+                    where:{
+                        uid:uid
+                    }
+                })
+                if(userExist){
+                    await prisma.xp.update({
+                        where:{
+                            id:userExist.id
+                        },
+                        data:{
+                            totalXp:parseFloat(cxp),
+                            date:new Date()
+                        }
+                    })
+                }
+                else{
+                    await prisma.xp.create({
+                        data:{
+                            uid:uid,
+                            totalXp:cxp,
+                            date:new Date()
+                        }
+                    })
+                }
+            }
             return res.status(200).json({success:true,result})
         }
         else{
@@ -31,6 +81,54 @@ const addData=async (req,res)=>{
                         uid,item,quantity,measure,waterfootprint:findWaterfootprint.waterfootprint*quantity
                     }
                 })
+                const date=new Date()
+                const cxp=calcXp(findWaterfootprint.waterfootprint);
+                const results=await prisma.xp.findFirst({
+                    where:{
+                        uid:uid,
+                        date:date
+                    }
+                })
+                
+                if(results!=null){
+                    const totalxp=parseFloat(result.totalXp)+parseFloat(cxp)
+                    
+                    await prisma.xp.update({
+                        where:{
+                            id:results.id
+                        },
+                        data:{
+                            totalXp:totalxp
+                        }
+                    })
+                }
+                else{
+                    const userExist=await prisma.xp.findFirst({
+                        where:{
+                            uid:uid
+                        }
+                    })
+                    if(userExist){
+                        await prisma.xp.update({
+                            where:{
+                                id:userExist.id
+                            },
+                            data:{
+                                totalXp:parseFloat(cxp),
+                                date:new Date()
+                            }
+                        })
+                    }
+                    else{
+                        await prisma.xp.create({
+                            data:{
+                                uid:uid,
+                                totalXp:cxp,
+                                date:new Date()
+                            }
+                        })
+                    }
+                }
                 return res.status(200).json({success:true,result})
             }
             if(measure==="katori"){
@@ -44,6 +142,54 @@ const addData=async (req,res)=>{
                         uid,item,quantity,measure,waterfootprint:findWaterfootprint.waterfootprint*quantity*124
                     }
                 })
+                const date=new Date()
+                const cxp=calcXp(findWaterfootprint.waterfootprint);
+                const results=await prisma.xp.findFirst({
+                    where:{
+                        uid:uid,
+                        date:date
+                    }
+                })
+                
+                if(results!=null){
+                    const totalxp=parseFloat(result.totalXp)+parseFloat(cxp)
+                    
+                    await prisma.xp.update({
+                        where:{
+                            id:results.id
+                        },
+                        data:{
+                            totalXp:totalxp
+                        }
+                    })
+                }
+                else{
+                    const userExist=await prisma.xp.findFirst({
+                        where:{
+                            uid:uid
+                        }
+                    })
+                    if(userExist){
+                        await prisma.xp.update({
+                            where:{
+                                id:userExist.id
+                            },
+                            data:{
+                                totalXp:parseFloat(cxp),
+                                date:new Date()
+                            }
+                        })
+                    }
+                    else{
+                        await prisma.xp.create({
+                            data:{
+                                uid:uid,
+                                totalXp:cxp,
+                                date:new Date()
+                            }
+                        })
+                    }
+                }
                 return res.status(200).json({success:true,result})
             }
             if(measure==="cup"){
@@ -57,6 +203,55 @@ const addData=async (req,res)=>{
                         uid,item,quantity,measure,waterfootprint:findWaterfootprint.waterfootprint*quantity*206
                     }
                 })
+                const date=new Date()
+                const cxp=calcXp(findWaterfootprint.waterfootprint);
+
+                const results=await prisma.xp.findFirst({
+                    where:{
+                        uid:uid,
+                        date:date
+                    }
+                })
+                
+                if(results!=null){
+                    const totalxp=parseFloat(result.totalXp)+parseFloat(cxp)
+                    
+                    await prisma.xp.update({
+                        where:{
+                            id:results.id
+                        },
+                        data:{
+                            totalXp:totalxp
+                        }
+                    })
+                }
+                else{
+                    const userExist=await prisma.xp.findFirst({
+                        where:{
+                            uid:uid
+                        }
+                    })
+                    if(userExist){
+                        await prisma.xp.update({
+                            where:{
+                                id:userExist.id
+                            },
+                            data:{
+                                totalXp:parseFloat(cxp),
+                                date:new Date()
+                            }
+                        })
+                    }
+                    else{
+                        await prisma.xp.create({
+                            data:{
+                                uid:uid,
+                                totalXp:cxp,
+                                date:new Date()
+                            }
+                        })
+                    }
+                }
                 return res.status(200).json({success:true,result})
             }
 
@@ -71,6 +266,54 @@ const addData=async (req,res)=>{
                         uid,item,quantity,measure,waterfootprint:findWaterfootprint.waterfootprint*quantity*290
                     }
                 })
+                const date=new Date()
+                const cxp=calcXp(findWaterfootprint.waterfootprint);
+                const results=await prisma.xp.findFirst({
+                    where:{
+                        uid:uid,
+                        date:date
+                    }
+                })
+                
+                if(results!=null){
+                    const totalxp=parseFloat(result.totalXp)+parseFloat(cxp)
+                    
+                    await prisma.xp.update({
+                        where:{
+                            id:results.id
+                        },
+                        data:{
+                            totalXp:totalxp
+                        }
+                    })
+                }
+                else{
+                    const userExist=await prisma.xp.findFirst({
+                        where:{
+                            uid:uid
+                        }
+                    })
+                    if(userExist){
+                        await prisma.xp.update({
+                            where:{
+                                id:userExist.id
+                            },
+                            data:{
+                                totalXp:parseFloat(cxp),
+                                date:new Date()
+                            }
+                        })
+                    }
+                    else{
+                        await prisma.xp.create({
+                            data:{
+                                uid:uid,
+                                totalXp:cxp,
+                                date:new Date()
+                            }
+                        })
+                    }
+                }
                 return res.status(200).json({success:true,result})
             }
 
@@ -85,6 +328,54 @@ const addData=async (req,res)=>{
                         uid,item,quantity,measure,waterfootprint:findWaterfootprint.waterfootprint*quantity*100
                     }
                 })
+                const date=new Date()
+                const cxp=calcXp(findWaterfootprint.waterfootprint);
+                const results=await prisma.xp.findFirst({
+                    where:{
+                        uid:uid,
+                        date:date
+                    }
+                })
+                
+                if(results!=null){
+                    const totalxp=parseFloat(result.totalXp)+parseFloat(cxp)
+                    
+                    await prisma.xp.update({
+                        where:{
+                            id:results.id
+                        },
+                        data:{
+                            totalXp:totalxp
+                        }
+                    })
+                }
+                else{
+                    const userExist=await prisma.xp.findFirst({
+                        where:{
+                            uid:uid
+                        }
+                    })
+                    if(userExist){
+                        await prisma.xp.update({
+                            where:{
+                                id:userExist.id
+                            },
+                            data:{
+                                totalXp:parseFloat(cxp),
+                                date:new Date()
+                            }
+                        })
+                    }
+                    else{
+                        await prisma.xp.create({
+                            data:{
+                                uid:uid,
+                                totalXp:cxp,
+                                date:new Date()
+                            }
+                        })
+                    }
+                }
                 return res.status(200).json({success:true,result})
             }
         }
