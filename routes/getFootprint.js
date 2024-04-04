@@ -9,6 +9,8 @@ const getAllActivity = require('../controller/getAllActivity')
 const getUserDatabyDate = require('../controller/getUserDatabyDate')
 const removeData = require('../controller/removeUserData')
 const getUserDatabyWeek = require('../controller/getUserDatabyWeek')
+const getxpbyuseruid = require('../controller/getxpbyuseruid')
+const xpleaderboard = require('../controller/xpleaderboard')
 const router=express.Router()
 
 router.get('/food',searchFood)
@@ -21,5 +23,7 @@ router.get('/getallfood',getAllFood)
 router.get('/getallactivity',getAllActivity)
 router.delete('/delete/:id',removeData)
 router.get('/week/:id',getUserDatabyWeek)
+router.get('/xp/:uid',getxpbyuseruid)
+router.get('/leaderboard',xpleaderboard)
 
 module.exports=router
