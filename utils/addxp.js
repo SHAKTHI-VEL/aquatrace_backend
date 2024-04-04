@@ -4,20 +4,24 @@ const prisma=new PrismaClient()
 
 const addXp=async(waterfootprint,uid)=>{
 
-    
+    console.log(uid);
+
+    const s=uid.uid
+    console.log(s);
+    const cxp=calcXp(waterfootprint);
     const date=new Date()
 
-    const result=await prisma.xp.findFirst({
+    const result=await prisma.newxp.findFirst({
         where:{
-            uid:uid,
+            uid:s,
             date:date
         }
     })
-    
+    console.log(result);
     if(result!=null){
         const totalxp=parseFloat(result.totalXp)+parseFloat(cxp)
-        
-        await prisma.xp.update({
+        console.log(totalxp);
+        await prisma.newxp.update({
             where:{
                 id:result.id
             },
@@ -27,13 +31,13 @@ const addXp=async(waterfootprint,uid)=>{
         })
     }
     else{
-        const userExist=await prisma.xp.findFirst({
+        const userExist=await prisma.newxp.findFirst({
             where:{
-                uid:uid
+                uid:s
             }
         })
         if(userExist){
-            await prisma.xp.update({
+            await prisma.newxp.update({
                 where:{
                     id:userExist.id
                 },
@@ -44,10 +48,10 @@ const addXp=async(waterfootprint,uid)=>{
             })
         }
         else{
-            await prisma.xp.create({
+            await prisma.newxp.create({
                 data:{
-                    uid:uid,
-                    totalXp:cxp,
+                    uid:s,
+                    totalxp:cxp,
                     date:new Date()
                 }
             })

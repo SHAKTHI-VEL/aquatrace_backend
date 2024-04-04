@@ -1,4 +1,5 @@
-const {PrismaClient}=require('@prisma/client')
+const {PrismaClient}=require('@prisma/client');
+const addXp = require('../utils/addxp');
 const prisma=new PrismaClient()
 
 const addData=async (req,res)=>{
@@ -15,6 +16,7 @@ const addData=async (req,res)=>{
                     uid,item,quantity,measure,waterfootprint:findWaterfootprint.waterfootprint*quantity
                 }
             })
+            await(addXp(600,req.body))
             return res.status(200).json({success:true,result})
         }
         else{
