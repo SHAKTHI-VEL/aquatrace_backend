@@ -1,4 +1,6 @@
-const {PrismaClient}=require('@prisma/client')
+const {PrismaClient}=require('@prisma/client');
+const removexp = require('../utils/removexp');
+const xpreduction = require('./xpreduction');
 const prisma=new PrismaClient()
 
 const removeData=async(req,res)=>{
@@ -13,6 +15,7 @@ const removeData=async(req,res)=>{
             return res.status(404).json({success:false})
         }
         else{
+            await xpreduction(id)
             const result=await prisma.userdata.delete({
                 where:(
                     {
