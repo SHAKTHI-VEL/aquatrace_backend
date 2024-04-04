@@ -34,6 +34,6 @@ model userdata {
 model xp{
   id             Int      @id @default(autoincrement())
   uid            String
-  totalXp        Decimal
+  totalxp        Decimal
   date           DateTime @db.Date
 }

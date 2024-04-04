@@ -29,14 +29,14 @@ const addData=async (req,res)=>{
             })
             
             if(results!=null){
-                const totalxp=parseFloat(results.totalXp)+parseFloat(cxp)
+                const totalxp=parseFloat(results.totalxp)+parseFloat(cxp)
                 
                 await prisma.xp.update({
                     where:{
                         id:results.id
                     },
                     data:{
-                        totalXp:totalxp
+                        totalxp:totalxp
                     }
                 })
             }
@@ -52,7 +52,7 @@ const addData=async (req,res)=>{
                             id:userExist.id
                         },
                         data:{
-                            totalXp:parseFloat(cxp),
+                            totalxp:parseFloat(cxp),
                             date:new Date()
                         }
                     })
@@ -61,7 +61,7 @@ const addData=async (req,res)=>{
                     await prisma.xp.create({
                         data:{
                             uid:uid,
-                            totalXp:cxp,
+                            totalxp:cxp,
                             date:new Date()
                         }
                     })
@@ -91,14 +91,14 @@ const addData=async (req,res)=>{
                 })
                 
                 if(results!=null){
-                    const totalxp=parseFloat(result.totalXp)+parseFloat(cxp)
+                    const totalxp=parseFloat(result.totalxp)+parseFloat(cxp)
                     
                     await prisma.xp.update({
                         where:{
                             id:results.id
                         },
                         data:{
-                            totalXp:totalxp
+                            totalxp:totalxp
                         }
                     })
                 }
@@ -114,7 +114,7 @@ const addData=async (req,res)=>{
                                 id:userExist.id
                             },
                             data:{
-                                totalXp:parseFloat(cxp),
+                                totalxp:parseFloat(cxp),
                                 date:new Date()
                             }
                         })
@@ -123,7 +123,7 @@ const addData=async (req,res)=>{
                         await prisma.xp.create({
                             data:{
                                 uid:uid,
-                                totalXp:cxp,
+                                totalxp:cxp,
                                 date:new Date()
                             }
                         })
@@ -152,14 +152,14 @@ const addData=async (req,res)=>{
                 })
                 
                 if(results!=null){
-                    const totalxp=parseFloat(result.totalXp)+parseFloat(cxp)
+                    const totalxp=parseFloat(result.totalxp)+parseFloat(cxp)
                     
                     await prisma.xp.update({
                         where:{
                             id:results.id
                         },
                         data:{
-                            totalXp:totalxp
+                            totalxp:totalxp
                         }
                     })
                 }
@@ -175,7 +175,7 @@ const addData=async (req,res)=>{
                                 id:userExist.id
                             },
                             data:{
-                                totalXp:parseFloat(cxp),
+                                totalxp:parseFloat(cxp),
                                 date:new Date()
                             }
                         })
@@ -184,7 +184,7 @@ const addData=async (req,res)=>{
                         await prisma.xp.create({
                             data:{
                                 uid:uid,
-                                totalXp:cxp,
+                                totalxp:cxp,
                                 date:new Date()
                             }
                         })
@@ -214,14 +214,14 @@ const addData=async (req,res)=>{
                 })
                 
                 if(results!=null){
-                    const totalxp=parseFloat(result.totalXp)+parseFloat(cxp)
+                    const totalxp=parseFloat(result.totalxp)+parseFloat(cxp)
                     
                     await prisma.xp.update({
                         where:{
                             id:results.id
                         },
                         data:{
-                            totalXp:totalxp
+                            totalxp:totalxp
                         }
                     })
                 }
@@ -237,7 +237,7 @@ const addData=async (req,res)=>{
                                 id:userExist.id
                             },
                             data:{
-                                totalXp:parseFloat(cxp),
+                                totalxp:parseFloat(cxp),
                                 date:new Date()
                             }
                         })
@@ -246,7 +246,7 @@ const addData=async (req,res)=>{
                         await prisma.xp.create({
                             data:{
                                 uid:uid,
-                                totalXp:cxp,
+                                totalxp:cxp,
                                 date:new Date()
                             }
                         })
@@ -276,14 +276,14 @@ const addData=async (req,res)=>{
                 })
                 
                 if(results!=null){
-                    const totalxp=parseFloat(result.totalXp)+parseFloat(cxp)
+                    const totalxp=parseFloat(result.totalxp)+parseFloat(cxp)
                     
                     await prisma.xp.update({
                         where:{
                             id:results.id
                         },
                         data:{
-                            totalXp:totalxp
+                            totalxp:totalxp
                         }
                     })
                 }
@@ -299,7 +299,7 @@ const addData=async (req,res)=>{
                                 id:userExist.id
                             },
                             data:{
-                                totalXp:parseFloat(cxp),
+                                totalxp:parseFloat(cxp),
                                 date:new Date()
                             }
                         })
@@ -308,7 +308,7 @@ const addData=async (req,res)=>{
                         await prisma.xp.create({
                             data:{
                                 uid:uid,
-                                totalXp:cxp,
+                                totalxp:cxp,
                                 date:new Date()
                             }
                         })
@@ -338,14 +338,14 @@ const addData=async (req,res)=>{
                 })
                 
                 if(results!=null){
-                    const totalxp=parseFloat(result.totalXp)+parseFloat(cxp)
+                    const totalxp=parseFloat(result.totalxp)+parseFloat(cxp)
                     
                     await prisma.xp.update({
                         where:{
                             id:results.id
                         },
                         data:{
-                            totalXp:totalxp
+                            totalxp:totalxp
                         }
                     })
                 }
@@ -361,7 +361,7 @@ const addData=async (req,res)=>{
                                 id:userExist.id
                             },
                             data:{
-                                totalXp:parseFloat(cxp),
+                                totalxp:parseFloat(cxp),
                                 date:new Date()
                             }
                         })
@@ -370,7 +370,7 @@ const addData=async (req,res)=>{
                         await prisma.xp.create({
                             data:{
                                 uid:uid,
-                                totalXp:cxp,
+                                totalxp:cxp,
                                 date:new Date()
                             }
                         })
