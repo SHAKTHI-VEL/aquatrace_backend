@@ -4,7 +4,9 @@ const prisma=new PrismaClient()
 
 const addXp=async(waterfootprint,uid)=>{
 
-    const s=uid
+    console.log(uid);
+
+    const s=uid.uid
     console.log(s);
     const cxp=calcXp(waterfootprint);
     const date=new Date()
