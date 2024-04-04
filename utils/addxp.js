@@ -17,10 +17,10 @@ const addXp=async(waterfootprint,uid)=>{
             date:date
         }
     })
-    console.log(result);
+    
     if(result!=null){
         const totalxp=parseFloat(result.totalXp)+parseFloat(cxp)
-        console.log(totalxp);
+        
         await prisma.xp.update({
             where:{
                 id:result.id
