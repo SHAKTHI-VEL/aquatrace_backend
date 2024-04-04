@@ -45,7 +45,7 @@ const addData=async (req,res)=>{
                         uid,item,quantity,measure,waterfootprint:findWaterfootprint.waterfootprint*quantity*124
                     }
                 })
-                await(addXp(findWaterfootprint.waterfootprint*quantity,req.body))
+                await(addXp(findWaterfootprint.waterfootprint*quantity*124,req.body))
                 return res.status(200).json({success:true,result})
             }
             if(measure==="cup"){
@@ -59,7 +59,7 @@ const addData=async (req,res)=>{
                         uid,item,quantity,measure,waterfootprint:findWaterfootprint.waterfootprint*quantity*206
                     }
                 })
-                await(addXp(findWaterfootprint.waterfootprint*quantity,req.body))
+                await(addXp(findWaterfootprint.waterfootprint*quantity*206,req.body))
                 return res.status(200).json({success:true,result})
             }
 
@@ -74,7 +74,7 @@ const addData=async (req,res)=>{
                         uid,item,quantity,measure,waterfootprint:findWaterfootprint.waterfootprint*quantity*290
                     }
                 })
-                await(addXp(findWaterfootprint.waterfootprint*quantity,req.body))
+                await(addXp(findWaterfootprint.waterfootprint*quantity*290,req.body))
                 return res.status(200).json({success:true,result})
             }
 
@@ -89,7 +89,7 @@ const addData=async (req,res)=>{
                         uid,item,quantity,measure,waterfootprint:findWaterfootprint.waterfootprint*quantity*100
                     }
                 })
-                await(addXp(findWaterfootprint.waterfootprint*quantity,req.body))
+                await(addXp(findWaterfootprint.waterfootprint*quantity*100,req.body))
                 return res.status(200).json({success:true,result})
             }
         }
