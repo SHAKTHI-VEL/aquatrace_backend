@@ -52,6 +52,7 @@ const addXp=async(waterfootprint,uid)=>{
                 data:{
                     uid:s,
                     totalxp:cxp,
+                    name:uid.name,
                     date:new Date()
                 }
             })

@@ -4,7 +4,7 @@ const prisma=new PrismaClient()
 
 const addData=async (req,res)=>{
     try {
-        const{uid,item,quantity,measure}=req.body;
+        const{uid,item,quantity,measure,name}=req.body;
         if(measure==='mins'){
             const findWaterfootprint=await prisma.activity.findFirst({
                 where:{

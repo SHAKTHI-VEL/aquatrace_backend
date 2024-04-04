@@ -41,6 +41,7 @@ model xp{
 model newxp{
     id             Int      @id @default(autoincrement())
     uid            String
+    name           String
   totalxp        Decimal
   date           DateTime @db.Date
 }
