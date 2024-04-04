@@ -6,7 +6,7 @@ const addXp=async(waterfootprint,uid)=>{
 
     console.log(uid);
 
-    const s=uid.uid
+    const s=JSON.stringify(uid.uid)
     console.log(s);
     const cxp=calcXp(waterfootprint);
     const date=new Date()
